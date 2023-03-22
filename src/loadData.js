@@ -42,8 +42,27 @@ const elaborate = (data) => {
      *******************************************************************************/
 
     const timestamp = data.dataLastUpdate.ultimo_aggiornamento;
+    //console.log(dataSommVaxDetail?.filter((e) => e?.eta ==='00-04'));
+    const test =  dataSommVaxDetail.filter((e) => e?.eta === "00-04");
 
+    const result = test?.reduce((acc, cur) => {
+        const date = cur.data.split("T")[0];
+        const event = acc[date] || { totale_eventi: 0, totale_d1: 0 };
+        event.totale_eventi++;
+        event.totale_d1 += cur.d1
+        acc[date] = event;
+        return acc;
+      }, {});
+      
+      const totaleD1 = Object.values(result).reduce(
+        (sum, event) => sum + event.totale_d1,
+        0
+      );
+      
+      //console.log(result);
+      //console.log("totale_d1:", totaleD1);
 
+      //console.log(result);
     /********************************************************************************
      * ------------------------- TOTALE SOMMINISTRAZIONI ----------------------------
      *******************************************************************************/
@@ -83,6 +102,8 @@ const elaborate = (data) => {
         /* Dose Addizionale/Booster 05-15 */
         dose_addizionale_booster_baby:  _.sum(dataSommVaxDetail?.map((e) => e?.eta === '05-11' ? e?.db1 : 0)), // somma delle prime dosi booster per la fascia 5-11
     };
+
+    //console.log(totalDoses)
 
     /* calcolo delle platee */
     let totalPlatea                             = _.sum(dataPlatea?.map((e) => (e?.eta !== '05-11' && e?.eta !== '00-04') ? e?.totale_popolazione : 0)); // totale platea della popolazione over 12
