@@ -13,7 +13,6 @@ import { hideLoader } from "./utils";
 import "./App.css";
 import { Locations } from "./containers/locations";
 
-
 function App() {
     const [summary, setSummary] = useState({});
 
@@ -29,13 +28,14 @@ function App() {
             <HeaderBar />
             <div className="container">
                 <Total summary={{ ...summary }} />          {/* Totale Somministrazioni */}
-                <Databox data={summary} />                  {/* Box riepilogo dati */}
-                <Deliveries data={summary} />               {/* Tabella Distribuzione Dosi */}
-                <Healed data={summary} />                   {/* Grafico guariti */}
                 <Weeks data={summary} />                    {/* Grafico Andamento Settimanale delle Somministrazioni */}
                 <AgeDoses data={summary} />                 {/* Grafico Somministrazioni per fascia d'età */}
-                <Supplier data={summary} />                 {/* Grafico Distribuzione Vaccini per Fornitore */}
-                <Locations data={summary} />                {/* Tabella Principali Punti di Somministrazione */}
+                <Databox data={summary} />                  {/* Box riepilogo dati  copertura vaccinale over-60 */}
+                {/* <Deliveries data={summary} />               Tabella Distribuzione Dosi rispetto alle consegne */}
+                {/* <Healed data={summary} />                   Grafico platea guariti */}
+                
+                {/* <Supplier data={summary} />                 Grafico Distribuzione Vaccini per Fornitore */}
+                {/* <Locations data={summary} />                Tabella Principali Punti di Somministrazione */}
             </div>
             <FooterBar />
         </div>

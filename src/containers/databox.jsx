@@ -125,7 +125,7 @@ export const Databox = ({ data }) => {
         // Dose second booster
         setTotalePersoneSecondBooster(format(data?.totalDoses?.dose_second_booster));
         setPercentualePersoneSecondBooster(format(data?.totalDoses?.dose_second_booster / data?.databoxContent?.totalPlateaDoseSecondBooster * 100, true))
-        
+
         // Dose third booster
         setTotalePersoneThirdBooster(format(data?.totalDoses?.dose_third_booster));
         setPercentualePersoneThirdBooster(format(data?.totalDoses?.dose_third_booster / data?.databoxContent?.totalPlateaDoseThirdBooster * 100, true));
@@ -151,11 +151,11 @@ export const Databox = ({ data }) => {
          setPercentualeGuaritiDopoSecondaDoseBooster(format(data?.databoxContent?.totalGuaritiSecondBoosterNotBaby / data?.databoxContent?.totalPlateaDoseThirdBooster * 100, true));
 
         // Totale booster
-        setTotaleBooster(format(data?.totalDoses?.dose_second_booster + data?.databoxContent?.totalGuaritiBoosterNotBaby)); 
+        setTotaleBooster(format(data?.totalDoses?.dose_second_booster + data?.databoxContent?.totalGuaritiBoosterNotBaby));
         setPercentualeTotaleBooster(format((data?.totalDoses?.dose_second_booster + data?.databoxContent?.totalGuaritiBoosterNotBaby) / (data?.databoxContent?.totalPlateaDoseSecondBooster) * 100, true));
 
         // Totale booster terza dose
-        setTotaleThirdBooster(format(data?.totalDoses?.dose_third_booster + data?.databoxContent?.totalGuaritiSecondBoosterNotBaby)); 
+        setTotaleThirdBooster(format(data?.totalDoses?.dose_third_booster + data?.databoxContent?.totalGuaritiSecondBoosterNotBaby));
         setPercentualeTotaleThirdBooster(format((data?.totalDoses?.dose_third_booster + data?.databoxContent?.totalGuaritiSecondBoosterNotBaby) / (data?.databoxContent?.totalPlateaDoseThirdBooster) * 100, true));
 
         // Prima Dose Baby
@@ -191,25 +191,25 @@ export const Databox = ({ data }) => {
         // Dose aggiuntiva/booster + Guariti con doppia dose
         setTotaleDoseAddizionaleGuaritiDoppiaDoseBaby(format(data?.databoxContent?.totalGuaritiDoppiaBaby + data?.totalDoses?.dose_addizionale_booster_baby));
         setPercentualeDoseAddizionaleGuaritiDoppiaDoseBaby(format((data?.databoxContent?.totalGuaritiDoppiaBaby + data?.totalDoses?.dose_addizionale_booster_baby) / data?.databoxContent?.totalPlateaDoseAddizionaleBoosterBaby* 100, true));
-  
+
          // Prima Dose neonati
          let primaInfant = (data?.totalDoses?.prima_dose_infant + data?.totalDoses?.pregressa_infezione_infant);
          if (!isNaN(primaInfant)) {
              setTotalePrimaDoseInfant(format(primaInfant));
              setPercentualePrimaDosePopolazioneInfant(format(primaInfant / data?.databoxContent?.totalPlateaInfant* 100, true));
          }
- 
+
          // Completamento ciclo vaccinale neonati
          let totInfant = (data?.totalDoses?.seconda_dose_infant + data?.totalDoses?.prima_dose_janssen_infant + data?.totalDoses?.pregressa_infezione_infant);
          if (!isNaN(totInfant)) {
              setTotalePersoneVaccinateInfant(format(totInfant));
              setTotalePersoneVaccinatePopolazioneInfant(format(totInfant / data?.databoxContent?.totalPlateaInfant* 100, true));
          }
- 
+
          // Guariti neonati
          setTotalePersoneGuariteInfant(format(data?.databoxContent?.totalGuaritiInfant));
          setTotalePersoneGuaritePopolazioneInfant(format(data?.databoxContent?.totalGuaritiInfant / data?.databoxContent?.totalPlateaInfant* 100, true));
- 
+
          // Prima Dose + Guariti neonati
          setTotalePrimaDoseConGuaritiInfant(format(primaInfant + data?.databoxContent?.totalGuaritiInfant));
          setPercentualeTotalePrimaDoseConGuaritiInfant(format((primaInfant + data?.databoxContent?.totalGuaritiInfant) / data?.databoxContent?.totalPlateaInfant* 100, true));
@@ -225,7 +225,7 @@ export const Databox = ({ data }) => {
     return (
         <div className="p-3 mb-5">
 
-            <div className="col-12 d-flex justify-content-center align-items-center p-3 section-title small">
+            {/* <div className="col-12 d-flex justify-content-center align-items-center p-3 section-title small">
                 <div className="mb-2" >
                     <h3 className="text-center">Copertura vaccinale Covid-19<br />Over 60</h3>
                 </div>
@@ -266,7 +266,7 @@ export const Databox = ({ data }) => {
                     </div>
                 </div>
             </div>
-            <Over60 data={data.over60Content} />                   {/* Grafico over 60 */}
+            <Over60 data={data.over60Content} />                   Grafico over 60 */}
 
             <div className="col-12 d-flex justify-content-center align-items-center p-3 section-title small">
                 <div className="mb-2" >
@@ -299,7 +299,7 @@ export const Databox = ({ data }) => {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-4 col-sm-12">
+                {/* <div className="col-md-4 col-sm-12">
                     <div className="box-card p-2">
                         <div className="p-1">
                             <div className="align-items-center justify-content-center text-center mb-4">
@@ -310,14 +310,14 @@ export const Databox = ({ data }) => {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="col-md-12 col-sm-12">
+                </div> */}
+                <div className="col-md-4 col-sm-12">
                     <div className="box-card p-2">
                         <div className="p-1">
                             <div className="align-items-center justify-content-center text-center mb-4">
-                                <h5 className="mt-2">Totale</h5>
-                                <div className="box-numbers">{totaleAlmenoUnaGuariti}</div>
-                                <div className="box-text">{percentualeAlmenoUnaGuariti} % della popolazione over 12</div>
+                                <h5 className="mt-2">Ultima settimana</h5>
+                                <div className="box-numbers">inserire nuovo numero</div>
+                                {/* <div className="box-text"> xx% della popolazione over 12</div> */}
                             </div>
                         </div>
                     </div>
@@ -327,7 +327,7 @@ export const Databox = ({ data }) => {
 
             <div className="col-12 d-flex justify-content-center align-items-center p-3 section-title small">
                 <div className="mb-2" >
-                    <h3 className="text-center">Dose Addizionale/Booster</h3>
+                    <h3 className="text-center">Dosi successive</h3>
                 </div>
             </div>
 
@@ -343,31 +343,45 @@ export const Databox = ({ data }) => {
                         </div>
                     </div>
                 </div>
+
                 <div className="col-md-6 col-sm-12">
                     <div className="box-card p-2">
                         <div className="p-1">
                             <div className="align-items-center justify-content-center text-center">
-                                <h5 className="mt-2 mb-3">Guariti post 2ª dose/unica dose</h5>
-                                <div className="box-numbers">{totalePersoneGuariteDoppiaDose?.toLocaleString('it')}</div>
-                                <div className="box-text">{totalePersoneGuaritePopolazioneDoppiaDose} % della popolazione potenzialmente oggetto di<br />dose addizionale o booster guarita post 2ª dose/unica dose<br />da al massimo 4 mesi</div>
+                                <h5 className="mt-2 mb-3">Booster immuno / 2ª dose booster</h5>
+                                <div className="box-numbers">{totalePersoneSecondBooster?.toLocaleString('it')}</div>
+                                <div className="box-text">{percentualePersoneSecondBooster} % della popolazione potenzialmente oggetto di <br />dose booster/2ª booster cha ha ultimato il ciclo vaccinale<br />da almeno 4 mesi</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="col-md-12 col-sm-12">
+
+                <div className="col-md-6 col-sm-12">
+                    <div className="box-card p-2">
+                        <div className="p-1">
+                            <div className="align-items-center justify-content-center text-center">
+                                <h5 className="mt-2 mb-3">3ª dose booster</h5>
+                                <div className="box-numbers">{totalePersoneThirdBooster?.toLocaleString('it')}</div>
+                                <div className="box-text">{percentualePersoneThirdBooster} % della popolazione potenzialmente oggetto di <br />3ª dose booster cha ha ultimato il ciclo vaccinale<br />da almeno 4 mesi</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="col-md-6 col-sm-12">
                     <div className="box-card p-2">
                         <div className="p-1">
                             <div className="align-items-center justify-content-center text-center mb-4">
-                                <h5 className="mt-2 mb-3">Totale</h5>
-                                <div className="box-numbers">{totaleDoseAddizionaleGuaritiDoppiaDose}</div>
-                                <div className="box-text">{percentualeDoseAddizionaleGuaritiDoppiaDose} % della platea dose booster</div>
+                                <h5 className="mt-2 mb-3">Ultima settimana (somma dose addizionale + booster immuno + terza dose)</h5>
+                                <div className="box-numbers">inserire numero</div>
+                                {/* <div className="box-text">{percentualeDoseAddizionaleGuaritiDoppiaDose} % della platea dose booster</div> */}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="col-12 d-flex justify-content-center align-items-center p-3 section-title small">
+            {/* <div className="col-12 d-flex justify-content-center align-items-center p-3 section-title small">
                 <div className="mb-2" >
                     <h3 className="text-center">Seconda dose booster</h3>
                 </div>
@@ -408,9 +422,9 @@ export const Databox = ({ data }) => {
                     </div>
                     <small className="box-text legend">*Dati relativi alla popolazione appartenente alle categorie prevalenti oggetto prioritariamente di 2ª dose booster</small>
                 </div>
-            </div>
+            </div> */}
 
-            <div className="col-12 d-flex justify-content-center align-items-center p-3 section-title small">
+            {/* <div className="col-12 d-flex justify-content-center align-items-center p-3 section-title small">
                 <div className="mb-2" >
                     <h3 className="text-center">Terza dose booster</h3>
                 </div>
@@ -451,7 +465,7 @@ export const Databox = ({ data }) => {
                     </div>
                     <small className="box-text legend">*Dati relativi alla popolazione appartenente alle categorie prevalenti oggetto prioritariamente di 3ª dose booster</small>
                 </div>
-            </div>
+            </div> */}
 
             <div className="col-12 d-flex justify-content-center align-items-center p-3 section-title small">
                 <div className="mb-2" >
@@ -484,25 +498,13 @@ export const Databox = ({ data }) => {
                         </div>
                     </div>
                 </div>
+
                 <div className="col-md-4 col-sm-12">
-                    <div className="box-card p-2">
-                        <div className="p-1">
-                            <div className="align-items-center justify-content-center text-center mb-4">
-                                <h5 className="mt-2">Guariti</h5>
-                                <div className="box-numbers">{totalePersoneGuariteBaby}</div>
-                                <div className="box-text">{totalePersoneGuaritePopolazioneBaby} % della popolazione 5-11</div>
-                                <div className="box-label" >guarita da al massimo 6 mesi senza alcuna somministrazione</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-md-12 col-sm-12">
                     <div className="box-card">
                         <div className="p-1">
                             <div className="align-items-center justify-content-center text-center mb-4">
-                                <h5 className="mt-2">Totale</h5>
-                                <div className="box-numbers">{totalePrimaDoseConGuaritiBaby}</div>
-                                <div className="box-text">{percentualeTotalePrimaDoseConGuaritiBaby} % della popolazione 5-11</div>
+                                <h5 className="mt-2">Ultima settimana</h5>
+                                <div className="box-numbers">inserire numero</div>
                             </div>
                         </div>
                     </div>
@@ -511,7 +513,7 @@ export const Databox = ({ data }) => {
 
             <div className="col-12 d-flex justify-content-center align-items-center p-3 section-title small">
                 <div className="mb-2" >
-                    <h3 className="text-center">Prima Dose Booster 5-11 anni</h3>
+                    <h3 className="text-center">Dosi successive 5-11 anni</h3>
                 </div>
             </div>
 
@@ -527,24 +529,13 @@ export const Databox = ({ data }) => {
                         </div>
                     </div>
                 </div>
+
                 <div className="col-md-6 col-sm-12">
                     <div className="box-card p-2">
                         <div className="p-1">
-                            <div className="align-items-center justify-content-center text-center">
-                                <h5 className="mt-2 mb-3">Guariti post 2ª dose/unica dose</h5>
-                                <div className="box-numbers">{totalePersoneGuariteDoppiaDoseBaby?.toLocaleString('it')}</div>
-                                <div className="box-text">{totalePersoneGuaritePopolazioneDoppiaDoseBaby} % della popolazione 5-11 potenzialmente oggetto di<br />dose addizionale o booster guarita post 2ª dose/unica dose<br />da al massimo 4 mesi</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-md-12 col-sm-12">
-                    <div className="box-card p-2">
-                        <div className="p-1">
                             <div className="align-items-center justify-content-center text-center mb-4">
-                                <h5 className="mt-2 mb-3">Totale</h5>
-                                <div className="box-numbers">{totaleDoseAddizionaleGuaritiDoppiaDoseBaby}</div>
-                                <div className="box-text">{percentualeDoseAddizionaleGuaritiDoppiaDoseBaby} % della platea dose booster 5-11</div>
+                                <h5 className="mt-2 mb-3">Ultima settimana</h5>
+                                <div className="box-numbers">inserire numero</div>
                             </div>
                         </div>
                     </div>
@@ -582,30 +573,18 @@ export const Databox = ({ data }) => {
                         </div>
                     </div>
                 </div>
+              
                 <div className="col-md-4 col-sm-12">
-                    <div className="box-card p-2">
-                        <div className="p-1">
-                            <div className="align-items-center justify-content-center text-center mb-4">
-                                <h5 className="mt-2">Guariti</h5>
-                                <div className="box-numbers">{totalePersoneGuariteInfant}</div>
-                                <div className="box-text">{totalePersoneGuaritePopolazioneInfant} % della popolazione 0-4</div>
-                                <div className="box-label" >guarita da al massimo 6 mesi senza alcuna somministrazione</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-md-12 col-sm-12">
                     <div className="box-card">
                         <div className="p-1">
                             <div className="align-items-center justify-content-center text-center mb-4">
-                                <h5 className="mt-2">Totale</h5>
-                                <div className="box-numbers">{totalePrimaDoseConGuaritiInfant}</div>
-                                <div className="box-text">{percentualeTotalePrimaDoseConGuaritiInfant} % della popolazione 0-4</div>
+                                <h5 className="mt-2">Ultima settimana</h5>
+                                <div className="box-numbers">inserire numero</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
     );
 };

@@ -26,9 +26,14 @@ export const Weeks = ({ data }) => {
     return (
         <div className="row">
             {/* Title Box - Desktop View */}
+            
             <div className="col-12 d-flex justify-content-center align-items-center section-title px-5 mx-2">
-                <h3>Andamento settimanale delle somministrazioni</h3>
+                <div>
+                    <h3>Andamento settimanale delle somministrazioni</h3>
+                    <p className="h5">Totale vaccinazioni (inserire numero) <strong>ultima settimana</strong> dal <strong>xx/xx</strong> al <strong>xx/xx</strong></p>
+                </div>
             </div>
+            
             {/* // Title Box - Desktop View */}
             <div className="row col-12 m-2 p-2 ">
                 <div className="col-12 col-md-6 align-items-end testo-info-campania d-none d-sm-none d-md-flex d-lg-flex"></div>
