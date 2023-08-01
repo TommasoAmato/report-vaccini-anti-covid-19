@@ -29,7 +29,7 @@ export const Weeks = ({ data }) => {
             
             <div className="col-12 d-flex justify-content-center align-items-center section-title px-5 mx-2">
                 <div>
-                    <h3>Andamento settimanale delle somministrazioni</h3>
+                    <h3>Somministrazioni su base settimanale</h3>
                     <p className="h5">Totale vaccinazioni (inserire numero) <strong>ultima settimana</strong> dal <strong>xx/xx</strong> al <strong>xx/xx</strong></p>
                 </div>
             </div>
