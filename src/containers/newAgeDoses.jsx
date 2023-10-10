@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { isEmpty, max } from "lodash";
-import { AgeHStackedBarChart } from "./../components/AgeHStackedBarChart";
+import { NewAgeHStackedBarChart } from "./../components/NewAgeHStackedBarChart";
+
 import { MapArea } from "./../components/MapArea";
 
-export const AgeDoses = ({ data }) => {
+export const NewAgeDoses = ({ data }) => {
     const [dosesAgesColor, setdosesAgesColor] = useState([]);
     const [dosesAges, setdosesAges] = useState([]);
     const [dosesAgesKeys, setDosesAgesKeys] = useState([]);
@@ -18,93 +19,141 @@ export const AgeDoses = ({ data }) => {
     const [selectedCodeAge, setSelectedCodeAge] = useState(null);
 
     const [totalByCategory, setTotalByCategory] = useState(0);
+    const customSort = (a, b) => {
+        const order = ["Fascia over 80", "Fascia 70-79", "Fascia 60-69", "Fascia 12-59", "Fascia 05-11", "Fascia 0-4"];
+        return order.indexOf(a.label) - order.indexOf(b.label);
+    };
+
+
+    const filterAndAggregateData = (data) => {
+        // Prima, calcoliamo il totale per ogni fascia d'età
+        const totalsByAge = data.map(item => {
+            const totalDoses = ["prima", "seconda", "addizionale", "second_booster", "third_booster"]
+                .reduce((sum, doseKey) => sum + (item[doseKey] || 0), 0);
+            return {
+                label: item.label,
+                totale: totalDoses
+            };
+        });
+    
+        // Poi, creiamo la nuova fascia "12-59" sommando i totali delle fasce d'età corrispondenti
+        const fascia1259 = totalsByAge
+            .filter(item => 
+                ["Fascia 12-19", "Fascia 20-29", "Fascia 30-39", "Fascia 40-49", "Fascia 50-59"].includes(item.label)
+            )
+            .reduce((acc, curr) => {
+                acc.totale += curr.totale;
+                return acc;
+            }, { label: "Fascia 12-59", totale: 0 });
+    
+        // Filtra e aggrega le altre fasce, escludendo quelle che abbiamo già aggregato nella fascia 12-59
+        const otherAges = totalsByAge
+            .filter(item => !["Fascia 12-19", "Fascia 20-29", "Fascia 30-39", "Fascia 40-49", "Fascia 50-59"].includes(item.label));
+    
+        // Combina tutto insieme
+        const combinedData = [...otherAges, fascia1259];
+    
+        combinedData.sort(customSort);
+    
+        return combinedData;
+    };
+    
+    
+    
 
     useEffect(() => {
+
         if (!isEmpty(data)) {
             setdosesAgesColor(data.agedosesContent.dosesAgesColor);
             setdosesAges(data.agedosesContent.dosesAges);
             setDosesAgesKeys(data.agedosesContent.keysDosesAges);
             setKeyValueDoses(data.agedosesContent.keyValueDoses);
-            setDosesAgesData(data.agedosesContent.dosesAgesData);
-
+            setDosesAgesData(filterAndAggregateData(data.agedosesContent.dosesAgesData));
+    
             setTotalByCategory(data.tot);
             setCategoryMapData(data.agedosesContent.secondDosesMapData);
         }
     }, [data]);
-
+    
     const resetFilter = () => {
         setSelectedCodeAge(null);
         setCategorySelectedRegion(null);
         setCategorySelectedRegionDescr(null);
         setTotalByCategory(data.tot);
-        setDosesAgesData(data.agedosesContent.dosesAgesData);
+        setDosesAgesData(filterAndAggregateData(data.agedosesContent.dosesAgesData));
         setCategoryMapField("somministrazioni");
         setCategoryMapData(data.agedosesContent.secondDosesMapData);
     };
 
-
     const fillMapCategoryArea = ({ region, maxValue, field }) => {
         let scaleOp = 0;
         if (region.code === categorySelectedRegion) {
-          scaleOp = 1;
+            scaleOp = 1;
         } else if (!categorySelectedRegion) {
-          scaleOp = max([region[field] / maxValue, 0.1]);
+            scaleOp = max([region[field] / maxValue, 0.1]);
         } else {
-          const valueToFill = region[field] / (2 * maxValue);
-          scaleOp = max([valueToFill, 0.1]);
+            const valueToFill = region[field] / (2 * maxValue);
+            scaleOp = max([valueToFill, 0.1]);
         }
         return `rgba(0,102,204,${scaleOp}) `;
     };
 
     const handleMapCategoryClick = (region) => {
         if (selectedCodeAge) {
-          resetFilter();
+            resetFilter();
         }
-
+    
         if (categorySelectedRegion === region.code) {
-          resetFilter();
+            resetFilter();
         } else {
-          setCategorySelectedRegion(region.code);
-          setCategorySelectedRegionDescr(region.area);
-          setDosesAgesData(data.agedosesContent.dosesAgesRegionData[region.code])
-
-          for(let row of data?.totalDeliverySummary) {
-            if (row.code === region.code) {
-                setTotalByCategory(row.dosi_somministrate);
+            setCategorySelectedRegion(region.code);
+            setCategorySelectedRegionDescr(region.area);
+            
+            // Qui raggruppiamo le fasce d'età per la regione selezionata
+            const regionalData = data.agedosesContent.dosesAgesRegionData[region.code];
+            setDosesAgesData(filterAndAggregateData(regionalData));
+    
+            for(let row of data?.totalDeliverySummary) {
+                if (row.code === region.code) {
+                    setTotalByCategory(row.dosi_somministrate);
+                }
             }
-          }
         }
     };
 
     const handleCategoryBarChartClick = (cat) => {
         if (categorySelectedRegion) {
-          resetFilter();
+            resetFilter();
         }
-
+    
         const ageCode = cat.data.label.toLowerCase().replaceAll(' ', '_');
-
+    
         if (selectedCodeAge === ageCode) {
-          resetFilter();
+            resetFilter();
         } else {
-          setSelectedCodeAge(ageCode);
-          setCategoryMapField(ageCode);
-
-          for(let row of data.agedosesContent.dosesAgesData) {
-            if (row.label === cat.data.label) {
-                setTotalByCategory(row.totale);
-                break;
+            setSelectedCodeAge(ageCode);
+            setCategoryMapField(ageCode);
+    
+            const aggregatedData = filterAndAggregateData(data.agedosesContent.dosesAgesData);
+            for(let row of aggregatedData) {
+                if (row.label === cat.data.label) {
+                    setTotalByCategory(row.totale);
+                    break;
+                }
             }
-          }
         }
     };
 
+    const chartWidth = 350;
+    const chartHeight = 300;
     return (
         <div className="row">
             {/* Box Title */}
             <div className="col-12 d-flex justify-content-center align-items-center section-title mx-2">
                 <div>
-                    <h3>Somministrazioni per fascia d'età - dose</h3>
+                    <h3>Somministrazioni di XBB 1.5 per fascia d'età</h3>
                 </div>
+                
             </div>
             {/* // Box Title */}
 
@@ -120,9 +169,7 @@ export const AgeDoses = ({ data }) => {
                                 {totalByCategory && totalByCategory.toLocaleString("it")}
                             </p>
                         </div>
-                        <div className="col-12 d-flex justify-content-end pb-2">
-                            <img alt="reset-plot2" src="reset_white.png" onClick={resetFilter} height="36px"/>
-                        </div>
+
                     </div>
                 </div>
                 {/* // Total Box - Mobile Layout */}
@@ -150,22 +197,21 @@ export const AgeDoses = ({ data }) => {
             <div className="col-12 col-md-6">
 
                 {/* Graph */}
-                <AgeHStackedBarChart
-                    width={+350}
-                    height={+300}
-                    property={{ xprop: "label", yprop: "total" }}
-                    handleRectClick={handleCategoryBarChartClick}
-                    regionSelected={categorySelectedRegionDescr}
-                    selectedCodeAge={selectedCodeAge}
-                    colors={dosesAgesColor}
-                    keys={dosesAgesKeys}
-                    labels={keyValueDoses}
-                    data={dosesAgesData}
-                />
+                <NewAgeHStackedBarChart
+    width={chartWidth}
+    height={chartHeight}
+    handleRectClick={handleCategoryBarChartClick}
+    regionSelected={categorySelectedRegionDescr}
+    selectedCodeAge={selectedCodeAge}
+    colors={dosesAgesColor}
+    keys={["totale"]} // Poiché stai usando solo il totale
+    labels={keyValueDoses}
+    data={dosesAgesData}
+/>
                 {/* // Graph */}
 
                 {/* Legend */}
-                <div className="row mb-4 ml-4">
+                {/* <div className="row mb-4 ml-4">
                     {dosesAges.map((dose, index) => {
                         return (
                             <div className="row" key={dose}>
@@ -174,7 +220,7 @@ export const AgeDoses = ({ data }) => {
                             </div>
                         )
                     })}
-                </div>
+                </div> */}
                 {/* // Legend */}
 
                 <p className="d-block d-sm-none text-center">*Tieni premuto sulle barre del grafico per visualizzare i dati sulle dosi somministrate</p>

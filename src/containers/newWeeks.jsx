@@ -3,7 +3,9 @@ import { isEmpty } from "lodash";
 import { StackedBarChart } from "./../components/StackedBarChart";
 import { RangeWeek } from "./../components/RangeWeek";
 
-export const Weeks = ({ data }) => {
+export const NewWeeks = ({ data }) => {
+
+    
     const [suppliersColor, setSuppliersColor] = useState([]);
     const [suppliers, setSuppliers] = useState([]);
     const [suppliersWeek, setSuppliersWeek] = useState([]);
@@ -13,7 +15,7 @@ export const Weeks = ({ data }) => {
     useEffect(() => {
         if (!isEmpty(data)) {
             setSuppliersColor(data.weekContent.suppliersColor);
-            setSuppliers(data.weekContent.suppliers);
+            setSuppliers(data.weekContent.suppliers.filter(supplier => supplier === "Pfizer/BioNTech"));
             setSuppliersWeek(data.weekContent.suppliersWeek);
 
             setTo(data.weekContent.suppliersWeek.length);
@@ -29,7 +31,7 @@ export const Weeks = ({ data }) => {
             
             <div className="col-12 d-flex justify-content-center align-items-center section-title px-5 mx-2">
                 <div>
-                    <h3>Somministrazioni su base settimanale</h3>
+                    <h3>Somministrazioni su base settimanale <br/> richiamo con XBB 1.5</h3>
                     <p className="h5">Vaccinazioni dal <strong>xx</strong> al <strong>xx</strong>: yy</p>
                 </div>
             </div>

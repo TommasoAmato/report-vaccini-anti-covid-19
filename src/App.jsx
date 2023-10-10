@@ -13,6 +13,13 @@ import { hideLoader } from "./utils";
 import "./App.css";
 import { Locations } from "./containers/locations";
 
+
+import { NewTotal } from "./components/NewTotal";
+import { NewWeeks } from "./containers/newWeeks";
+import { NewAgeDoses } from "./containers/newAgeDoses";
+
+
+
 function App() {
     const [summary, setSummary] = useState({});
 
@@ -27,6 +34,12 @@ function App() {
         <div>
             <HeaderBar />
             <div className="container">
+                {/*nuova parte somministrazioni XBB 1.5 */}
+                <NewTotal summary={{ ...summary}} />           {/* Totale Somministrazioni XBB1.5 */}
+                <NewWeeks data={summary} />                    {/* Grafico Andamento Settimanale delle Somministrazioni XBB1.5 */}
+                <NewAgeDoses data={summary} />                 {/* Grafico Somministrazioni per fascia d'età XBB1.5*/}
+
+                <div style={{ marginBottom: '50px' }}></div>
                 <Total summary={{ ...summary }} />          {/* Totale Somministrazioni */}
                 <Weeks data={summary} />                    {/* Grafico Andamento Settimanale delle Somministrazioni */}
                 <AgeDoses data={summary} />                 {/* Grafico Somministrazioni per fascia d'età */}

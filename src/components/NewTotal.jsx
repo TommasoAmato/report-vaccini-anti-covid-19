@@ -1,22 +1,13 @@
 import { React } from "react";
 import moment from "moment";
 
-export const Total = (props) => {
+export const NewTotal = (props) => {
     return (
-        
         <div className="h-100 w-100 my-3">
-            <hr style={{ border: 'none', borderTop: '1px solid #e0e0e0', margin: '20px 0', marginBottom: '50px' }} />
-
-            <div className="mx-auto">
-            <div className="mx-auto" style={{ marginBottom: '10px' }}>
+            <div className="mx-auto" style={{ marginBottom: '30px' }}>
                 <h2 className="text-center">
-                    Dati complessivi vaccinazioni anti Covid-19
+                    Nuova campagna vaccinale 2023-2024
                 </h2>
-            </div>
-                <p className="text-justify  pb-4 h5" style={{fontSize: 24}}>
-                    Dati e statistiche sulla vaccinazione anti Covid-19 a partire dal 27 dicembre 2020 ad oggi.
-                    I dati sono aggiornati su base settimanale e sono disponibili in formato aperto con il dettaglio giornaliero.                 
-                </p>
             </div>
             <div className="mx-auto">
                 <h4 className="text-center">
@@ -36,7 +27,7 @@ export const Total = (props) => {
                 <span className="border-divider mb-2"></span>
                 <div className="d-flex justify-content-center">
                     {" "}
-                    <h3>Totale somministrazioni</h3>
+                    <h3>Totale Richiami vaccino adattato XBB 1.5</h3>
                 </div>
                 <div class="d-flex justify-content-center">
                     Il dato può subire variazioni negative a seguito di rettifiche da parte delle regioni

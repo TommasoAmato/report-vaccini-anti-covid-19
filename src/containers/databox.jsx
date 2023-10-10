@@ -372,7 +372,7 @@ export const Databox = ({ data }) => {
                     <div className="box-card p-2">
                         <div className="p-1">
                             <div className="align-items-center justify-content-center text-center mb-4">
-                                <h5 className="mt-2 mb-3">Ultima settimana (somma dose addizionale + booster immuno + terza dose)</h5>
+                                <h5 className="mt-2 mb-3">Ultima settimana</h5>
                                 <div className="box-numbers">inserire numero</div>
                                 {/* <div className="box-text">{percentualeDoseAddizionaleGuaritiDoppiaDose} % della platea dose booster</div> */}
                             </div>
