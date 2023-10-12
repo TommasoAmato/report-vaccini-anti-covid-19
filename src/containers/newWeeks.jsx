@@ -15,7 +15,7 @@ export const NewWeeks = ({ data }) => {
     useEffect(() => {
         if (!isEmpty(data)) {
             setSuppliersColor(data.weekContent.suppliersColor);
-            setSuppliers(data.weekContent.suppliers.filter(supplier => supplier === "Pfizer/BioNTech"));
+            setSuppliers(data.weekContent.suppliers.filter(supplier => supplier === "Pfizer/BioNTech" || supplier === "Pfizer Pediatrico"));
             setSuppliersWeek(data.weekContent.suppliersWeek);
 
             setTo(data.weekContent.suppliersWeek.length);
