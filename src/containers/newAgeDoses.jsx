@@ -269,7 +269,7 @@ export const NewAgeDoses = ({ data }) => {
                 <div className="p-4 d-none d-lg-block map-legend">
                     <div className="d-flex justify-content-start pr-5">
                         <h5 className="pl-3 pl-sm-1">
-                            Percentuale vaccinati
+                            Totale vaccinati
                             <br /> per regione
                         </h5>
                     </div>

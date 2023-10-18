@@ -6,7 +6,7 @@ export const NewTotal = (props) => {
         <div className="h-100 w-100 my-3">
             <div className="mx-auto" style={{ marginBottom: '30px' }}>
                 <h2 className="text-center">
-                    Nuova campagna vaccinale 2023-2024
+                    Campagna vaccinale Autunno-Inverno 2023/2024
                 </h2>
             </div>
             <div className="mx-auto">
@@ -27,7 +27,7 @@ export const NewTotal = (props) => {
                 <span className="border-divider mb-2"></span>
                 <div className="d-flex justify-content-center">
                     {" "}
-                    <h3>Totale Richiami vaccino adattato XBB 1.5</h3>
+                    <h3>Totale somministrazioni con vaccino adattato XBB 1.5</h3>
                 </div>
                 <div class="d-flex justify-content-center">
                     Il dato può subire variazioni negative a seguito di rettifiche da parte delle regioni
