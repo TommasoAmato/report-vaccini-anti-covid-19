@@ -4,8 +4,27 @@ import moment from "moment";
 export const Total = (props) => {
     return (
         
-        <div className="h-100 w-100 my-3">
-            <hr style={{ border: 'none', borderTop: '1px solid #e0e0e0', margin: '20px 0', marginBottom: '50px' }} />
+        <div className="h-100 w-100"> 
+     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', margin: '20px 0', marginBottom: '50px' }}>
+    <div style={{ flex: 1, height: '1px', backgroundColor: '#009246' }}></div> {/* Verde */}
+    <div style={{ position: 'relative', flex: 1, height: '1px', backgroundColor: '#ffffff' }}>
+        <img src="../../logoMinSalute.png" alt="Logo Ministero" style={{
+            position: 'absolute',
+            left: '50%',
+            top: '-100.5px',  // Metà delle dimensioni del logo - 0.5 (metà della banda)
+            transform: 'translateX(-50%)',
+            width: '300px', 
+            zIndex: 1,
+        }}/>
+    </div>
+    <div style={{ flex: 1, height: '1px', backgroundColor: '#CE2B37' }}></div> {/* Rosso */}
+</div>
+
+<div style={{marginBottom: '200px'}}>
+<p className="text-center col-12 h5"><strong>esempio di elemento grafico di separazione. In attesa di specifiche per il fornitore.</strong></p>
+
+</div>
+
 
             <div className="mx-auto">
             <div className="mx-auto" style={{ marginBottom: '10px' }}>

@@ -39,7 +39,7 @@ function App() {
                 <NewWeeks data={summary} />                    {/* Grafico Andamento Settimanale delle Somministrazioni XBB1.5 */}
                 <NewAgeDoses data={summary} />                 {/* Grafico Somministrazioni per fascia d'età XBB1.5*/}
 
-                <div style={{ marginBottom: '50px' }}></div>
+                <div style={{ marginBottom: '250px' }}></div>
                 <Total summary={{ ...summary }} />          {/* Totale Somministrazioni */}
                 {/* <Weeks data={summary} />                    Grafico Andamento Settimanale delle Somministrazioni */}
                 <AgeDoses data={summary} />                 {/* Grafico Somministrazioni per fascia d'età */}

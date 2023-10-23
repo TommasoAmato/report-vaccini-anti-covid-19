@@ -147,7 +147,7 @@ export const NewAgeDoses = ({ data }) => {
     const chartWidth = 350;
     const chartHeight = 300;
     return (
-        <div className="row">
+        <div className="row" >
             {/* Box Title */}
             <div className="col-12 d-flex justify-content-center align-items-center section-title mx-2">
                 <div>
