@@ -15,7 +15,7 @@ export const NewWeeks = ({ data }) => {
     useEffect(() => {
         if (!isEmpty(data)) {
             setSuppliersColor(data.weekContent.suppliersColor);
-            setSuppliers(data.weekContent.suppliers.filter(supplier => supplier === "Pfizer/BioNTech"));
+            setSuppliers(data.weekContent.suppliers.filter(supplier => supplier === "Pfizer/BioNTech" || supplier === "Pfizer Pediatrico"));
             setSuppliersWeek(data.weekContent.suppliersWeek);
 
             setTo(data.weekContent.suppliersWeek.length);
@@ -31,7 +31,7 @@ export const NewWeeks = ({ data }) => {
             
             <div className="col-12 d-flex justify-content-center align-items-center section-title px-5 mx-2">
                 <div>
-                    <h3>Somministrazioni su base settimanale <br/> richiamo con XBB 1.5</h3>
+                    <h3>Somministrazioni su base settimanale<br/>del richiamo con XBB 1.5</h3>
                     <p className="h5">Vaccinazioni dal <strong>xx</strong> al <strong>xx</strong>: yy</p>
                 </div>
             </div>
@@ -82,7 +82,8 @@ export const NewWeeks = ({ data }) => {
                     <RangeWeek min={0} max={suppliersWeek.length} from={from} to={to} changeFrom={(value) => setFrom(value)} changeTo={(value) => setTo(value)}  />
                 )}
             </div>
-                <div>*Fai scorrere i selettori per aumentare o diminuire le settimane da visualizzare</div>
+                <div className="col-12">*Fai scorrere i selettori per aumentare o diminuire le settimane da visualizzare</div>
+                <div className="col-12">La voce "Pfizer Pediatrico" include le formulazioni per le fasce di età 0-4 anni e 5-11 anni</div>
         </div>
     )
 };
