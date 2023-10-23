@@ -103,7 +103,7 @@ export const AgeDoses = ({ data }) => {
             {/* Box Title */}
             <div className="col-12 d-flex justify-content-center align-items-center section-title mx-2">
                 <div>
-                    <h3>Somministrazioni per fascia d'età - dose</h3>
+                    <h3>Somministrazioni per fascia d'età - dose fino al 24/09/2023</h3>
                 </div>
             </div>
             {/* // Box Title */}

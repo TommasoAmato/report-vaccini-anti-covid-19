@@ -270,7 +270,7 @@ export const Databox = ({ data }) => {
 
             <div className="col-12 d-flex justify-content-center align-items-center p-3 section-title small">
                 <div className="mb-2" >
-                    <h3 className="text-center">Ciclo Vaccinale Primario</h3>
+                    <h3 className="text-center">Ciclo Vaccinale Primario fino al 24/09/2023</h3>
                 </div>
             </div>
 
@@ -327,7 +327,7 @@ export const Databox = ({ data }) => {
 
             <div className="col-12 d-flex justify-content-center align-items-center p-3 section-title small">
                 <div className="mb-2" >
-                    <h3 className="text-center">Dosi successive</h3>
+                    <h3 className="text-center">Dosi successive fino al 24/09/2023</h3>
                 </div>
             </div>
 
@@ -469,7 +469,7 @@ export const Databox = ({ data }) => {
 
             <div className="col-12 d-flex justify-content-center align-items-center p-3 section-title small">
                 <div className="mb-2" >
-                    <h3 className="text-center">Vaccinazioni 5-11 anni</h3>
+                    <h3 className="text-center">Vaccinazioni 5-11 anni fino al 24/09/2023</h3>
                 </div>
             </div>
 
@@ -555,7 +555,7 @@ export const Databox = ({ data }) => {
 
             <div className="col-12 d-flex justify-content-center align-items-center p-3 section-title small">
                 <div className="mb-2" >
-                    <h3 className="text-center">Ciclo Vaccinale Primario 0-4 anni</h3>
+                    <h3 className="text-center">Ciclo Vaccinale Primario 0-4 anni fino al 24/09/2023</h3>
                 </div>
             </div>
 

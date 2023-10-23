@@ -4,11 +4,14 @@ import moment from "moment";
 export const NewTotal = (props) => {
     return (
         <div className="h-100 w-100 my-3">
-            <div className="mx-auto" style={{ marginBottom: '30px' }}>
+            <div className="mx-auto" >
                 <h2 className="text-center">
                     Nuova campagna vaccinale 2023-2024
                 </h2>
             </div>
+            <p className="text-center text-justify  pb-4"  >
+                I dati sono aggiornati su base settimanale e sono disponibili in formato aperto con il dettaglio giornaliero.
+            </p>
             <div className="mx-auto">
                 <h4 className="text-center">
                     Ultimo aggiornamento dati

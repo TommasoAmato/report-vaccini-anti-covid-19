@@ -10,22 +10,12 @@ export const Total = (props) => {
             <div className="mx-auto">
             <div className="mx-auto" style={{ marginBottom: '10px' }}>
                 <h2 className="text-center">
-                    Dati complessivi vaccinazioni anti Covid-19
+                    Dati storici vaccinazioni anti Covid-19 fino al 24/09/2023
                 </h2>
             </div>
-                <p className="text-justify  pb-4 h5" style={{fontSize: 24}}>
-                    Dati e statistiche sulla vaccinazione anti Covid-19 a partire dal 27 dicembre 2020 ad oggi.
-                    I dati sono aggiornati su base settimanale e sono disponibili in formato aperto con il dettaglio giornaliero.                 
+                <p className="text-justify text-center  pb-4 h5" style={{fontSize: 18}}>
+                    Dati e statistiche sulla vaccinazione anti Covid-19 a partire dal 27 Dicembre 2020 al 24 Settembre 2023.
                 </p>
-            </div>
-            <div className="mx-auto">
-                <h4 className="text-center">
-                    Ultimo aggiornamento dati
-                </h4>
-                <h6 className="text-center pb-4">                
-                    {" "}
-                    {props.summary.timestamp && moment(props.summary.timestamp).format("DD-MM-YYYY")}
-                </h6>
             </div>
             <div className="d-flex flex-column justify-content-center">
                 <div className="d-flex justify-content-center align-items-baseline">
@@ -36,11 +26,8 @@ export const Total = (props) => {
                 <span className="border-divider mb-2"></span>
                 <div className="d-flex justify-content-center">
                     {" "}
-                    <h3>Totale somministrazioni</h3>
+                    <h3>Totale somministrazioni fino al 24/09/2023</h3>
                 </div>
-                <div class="d-flex justify-content-center">
-                    Il dato può subire variazioni negative a seguito di rettifiche da parte delle regioni
-                    </div>
             </div>
         </div>
     );

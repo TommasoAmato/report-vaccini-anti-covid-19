@@ -41,7 +41,7 @@ function App() {
 
                 <div style={{ marginBottom: '50px' }}></div>
                 <Total summary={{ ...summary }} />          {/* Totale Somministrazioni */}
-                <Weeks data={summary} />                    {/* Grafico Andamento Settimanale delle Somministrazioni */}
+                {/* <Weeks data={summary} />                    Grafico Andamento Settimanale delle Somministrazioni */}
                 <AgeDoses data={summary} />                 {/* Grafico Somministrazioni per fascia d'età */}
                 <Databox data={summary} />                  {/* Box riepilogo dati  copertura vaccinale over-60 */}
                 {/* <Deliveries data={summary} />               Tabella Distribuzione Dosi rispetto alle consegne */}
