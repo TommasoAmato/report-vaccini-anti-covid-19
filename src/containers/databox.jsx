@@ -275,7 +275,7 @@ export const Databox = ({ data }) => {
             </div>
 
             <div className="row bg-box p-2 mb-4">
-                <div className="col-md-4 col-sm-12">
+                <div className="col-md-6 col-sm-12">
                     <div className="box-card p-2">
                         <div className="p-1">
                             <div className="align-items-center justify-content-center text-center mb-4">
@@ -287,7 +287,7 @@ export const Databox = ({ data }) => {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-4 col-sm-12">
+                <div className="col-md-6 col-sm-12">
                     <div className="box-card p-2">
                         <div className="p-1">
                             <div className="align-items-center justify-content-center text-center mb-4">
@@ -311,17 +311,7 @@ export const Databox = ({ data }) => {
                         </div>
                     </div>
                 </div> */}
-                <div className="col-md-4 col-sm-12">
-                    <div className="box-card p-2">
-                        <div className="p-1">
-                            <div className="align-items-center justify-content-center text-center mb-4">
-                                <h5 className="mt-2">Ultima settimana</h5>
-                                <div className="box-numbers">inserire nuovo numero</div>
-                                {/* <div className="box-text"> xx% della popolazione over 12</div> */}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
 
 
@@ -356,25 +346,13 @@ export const Databox = ({ data }) => {
                     </div>
                 </div>
 
-                <div className="col-md-6 col-sm-12">
+                <div className="col-md-12 col-sm-12">
                     <div className="box-card p-2">
                         <div className="p-1">
                             <div className="align-items-center justify-content-center text-center">
                                 <h5 className="mt-2 mb-3">3ª dose booster</h5>
                                 <div className="box-numbers">{totalePersoneThirdBooster?.toLocaleString('it')}</div>
                                 <div className="box-text">{percentualePersoneThirdBooster} % della popolazione potenzialmente oggetto di <br />3ª dose booster cha ha ultimato il ciclo vaccinale<br />da almeno 4 mesi</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-md-6 col-sm-12">
-                    <div className="box-card p-2">
-                        <div className="p-1">
-                            <div className="align-items-center justify-content-center text-center mb-4">
-                                <h5 className="mt-2 mb-3">Ultima settimana</h5>
-                                <div className="box-numbers">inserire numero</div>
-                                {/* <div className="box-text">{percentualeDoseAddizionaleGuaritiDoppiaDose} % della platea dose booster</div> */}
                             </div>
                         </div>
                     </div>
@@ -510,16 +488,6 @@ export const Databox = ({ data }) => {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-12 col-sm-12">
-                    <div className="box-card">
-                        <div className="p-1">
-                            <div className="align-items-center justify-content-center text-center mb-4">
-                                <h5 className="mt-2">Ultima settimana</h5>
-                                <div className="box-numbers">inserire numero</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             {/* <div className="col-12 d-flex justify-content-center align-items-center p-3 section-title small">
@@ -560,7 +528,7 @@ export const Databox = ({ data }) => {
             </div>
 
             <div className="row bg-box mb-4">
-                <div className="col-md-4 col-sm-12">
+                <div className="col-md-6 col-sm-12">
                     <div className="box-card p-2">
                         <div className="p-1">
                             <div className="align-items-center justify-content-center text-center mb-4">
@@ -572,7 +540,7 @@ export const Databox = ({ data }) => {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-4 col-sm-12">
+                <div className="col-md-6 col-sm-12">
                     <div className="box-card p-2">
                         <div className="p-1">
                             <div className="align-items-center justify-content-center text-center mb-4">
@@ -585,7 +553,7 @@ export const Databox = ({ data }) => {
                     </div>
                 </div>
               
-                <div className="col-md-4 col-sm-12">
+                {/* <div className="col-md-4 col-sm-12">
                     <div className="box-card">
                         <div className="p-1">
                             <div className="align-items-center justify-content-center text-center mb-4">
@@ -594,7 +562,7 @@ export const Databox = ({ data }) => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );
